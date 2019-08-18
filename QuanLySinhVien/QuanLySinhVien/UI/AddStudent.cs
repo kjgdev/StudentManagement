@@ -30,20 +30,34 @@ namespace QuanLySinhVien.UI
             {
                 cbClass.Items.Add(item);
             }
-            cbClass.SelectedIndex = 0;
+            try
+            {
+                cbClass.SelectedIndex = 0;
+            }
+            catch { MessageBox.Show("No Data"); }
         }
 
 
         Student insertStudent()
         {
             Student student = new Student();
-            student.MSSV = tbMSSV.Text;
-            student.Name = tbName.Text;
-            student.Birthday = tbBirthday.Text;
-            if (rbMale.Checked) student.Gender = "Nam";
-            else student.Gender = "Nữ";
-            student.CMND = tbCMND.Text;
-            student.ClassID = cbClass.SelectedItem.ToString();
+            if (tbMSSV.Text == "" || tbName.Text == "" || tbDay.Text == "" || tbMonth.Text == "" || tbYear.Text == "" ||
+                tbCMND.Text == "")
+            {
+                MessageBox.Show("Nhập thiếu");
+                new AddStudent();
+            }
+            else
+            {
+               
+                student.MSSV = tbMSSV.Text;
+                student.Name = tbName.Text;
+                student.Birthday = new DateTime(int.Parse(tbYear.Text), int.Parse(tbMonth.Text), int.Parse(tbDay.Text));
+                if (rbMale.Checked) student.Gender = "Nam";
+                else student.Gender = "Nữ";
+                student.CMND = tbCMND.Text;
+                student.ClassID = cbClass.SelectedItem.ToString();
+            }
 
             return student;
         }

@@ -30,11 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.bntImport = new System.Windows.Forms.Button();
+            this.cbSelect = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbPath = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbSelect = new System.Windows.Forms.ComboBox();
-            this.bntImport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,40 @@
             this.label1.Text = "IMPORT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bntImport
+            // 
+            this.bntImport.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntImport.Location = new System.Drawing.Point(632, 285);
+            this.bntImport.Name = "bntImport";
+            this.bntImport.Size = new System.Drawing.Size(150, 50);
+            this.bntImport.TabIndex = 5;
+            this.bntImport.Text = "Import";
+            this.bntImport.UseVisualStyleBackColor = true;
+            this.bntImport.Click += new System.EventHandler(this.BntImport_Click);
+            // 
+            // cbSelect
+            // 
+            this.cbSelect.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSelect.FormattingEnabled = true;
+            this.cbSelect.Items.AddRange(new object[] {
+            "Import Student",
+            "Import Course",
+            "Import Grade"});
+            this.cbSelect.Location = new System.Drawing.Point(131, 128);
+            this.cbSelect.Name = "cbSelect";
+            this.cbSelect.Size = new System.Drawing.Size(171, 29);
+            this.cbSelect.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 136);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 21);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Select list:";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -78,40 +112,6 @@
             this.tbPath.Name = "tbPath";
             this.tbPath.Size = new System.Drawing.Size(770, 28);
             this.tbPath.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 21);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Select list:";
-            // 
-            // cbSelect
-            // 
-            this.cbSelect.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSelect.FormattingEnabled = true;
-            this.cbSelect.Items.AddRange(new object[] {
-            "Import Student",
-            "Import Course",
-            "Import Grade"});
-            this.cbSelect.Location = new System.Drawing.Point(131, 128);
-            this.cbSelect.Name = "cbSelect";
-            this.cbSelect.Size = new System.Drawing.Size(171, 29);
-            this.cbSelect.TabIndex = 4;
-            // 
-            // bntImport
-            // 
-            this.bntImport.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntImport.Location = new System.Drawing.Point(632, 285);
-            this.bntImport.Name = "bntImport";
-            this.bntImport.Size = new System.Drawing.Size(150, 50);
-            this.bntImport.TabIndex = 5;
-            this.bntImport.Text = "Import";
-            this.bntImport.UseVisualStyleBackColor = true;
-            this.bntImport.Click += new System.EventHandler(this.BntImport_Click);
             // 
             // Import
             // 
@@ -136,10 +136,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bntImport;
+        private System.Windows.Forms.ComboBox cbSelect;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbPath;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbSelect;
-        private System.Windows.Forms.Button bntImport;
     }
 }

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbYear = new System.Windows.Forms.TextBox();
+            this.tbMonth = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -37,7 +41,7 @@
             this.tbCMND = new System.Windows.Forms.TextBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
-            this.tbBirthday = new System.Windows.Forms.TextBox();
+            this.tbDay = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbMSSV = new System.Windows.Forms.TextBox();
             this.cbClass = new System.Windows.Forms.ComboBox();
@@ -53,6 +57,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.tbYear);
+            this.panel1.Controls.Add(this.tbMonth);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
@@ -61,7 +69,7 @@
             this.panel1.Controls.Add(this.tbCMND);
             this.panel1.Controls.Add(this.rbFemale);
             this.panel1.Controls.Add(this.rbMale);
-            this.panel1.Controls.Add(this.tbBirthday);
+            this.panel1.Controls.Add(this.tbDay);
             this.panel1.Controls.Add(this.tbName);
             this.panel1.Controls.Add(this.tbMSSV);
             this.panel1.Controls.Add(this.cbClass);
@@ -77,6 +85,46 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1178, 653);
             this.panel1.TabIndex = 0;
+            // 
+            // tbYear
+            // 
+            this.tbYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbYear.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbYear.Location = new System.Drawing.Point(350, 272);
+            this.tbYear.Name = "tbYear";
+            this.tbYear.Size = new System.Drawing.Size(73, 23);
+            this.tbYear.TabIndex = 19;
+            this.tbYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbMonth
+            // 
+            this.tbMonth.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbMonth.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMonth.Location = new System.Drawing.Point(280, 271);
+            this.tbMonth.Name = "tbMonth";
+            this.tbMonth.Size = new System.Drawing.Size(42, 23);
+            this.tbMonth.TabIndex = 19;
+            this.tbMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(328, 264);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(23, 30);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "/";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(256, 264);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 30);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "/";
             // 
             // btnAdd
             // 
@@ -128,10 +176,10 @@
             // tbCMND
             // 
             this.tbCMND.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCMND.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCMND.Location = new System.Drawing.Point(210, 414);
+            this.tbCMND.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCMND.Location = new System.Drawing.Point(210, 409);
             this.tbCMND.Name = "tbCMND";
-            this.tbCMND.Size = new System.Drawing.Size(216, 21);
+            this.tbCMND.Size = new System.Drawing.Size(216, 23);
             this.tbCMND.TabIndex = 12;
             // 
             // rbFemale
@@ -158,31 +206,32 @@
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
-            // tbBirthday
+            // tbDay
             // 
-            this.tbBirthday.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbBirthday.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBirthday.Location = new System.Drawing.Point(210, 277);
-            this.tbBirthday.Name = "tbBirthday";
-            this.tbBirthday.Size = new System.Drawing.Size(216, 21);
-            this.tbBirthday.TabIndex = 9;
+            this.tbDay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDay.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDay.Location = new System.Drawing.Point(210, 272);
+            this.tbDay.Name = "tbDay";
+            this.tbDay.Size = new System.Drawing.Size(40, 23);
+            this.tbDay.TabIndex = 9;
+            this.tbDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbName
             // 
             this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbName.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(210, 210);
+            this.tbName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Location = new System.Drawing.Point(210, 205);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(466, 21);
+            this.tbName.Size = new System.Drawing.Size(466, 23);
             this.tbName.TabIndex = 8;
             // 
             // tbMSSV
             // 
             this.tbMSSV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbMSSV.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMSSV.Location = new System.Drawing.Point(210, 149);
+            this.tbMSSV.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMSSV.Location = new System.Drawing.Point(210, 144);
             this.tbMSSV.Name = "tbMSSV";
-            this.tbMSSV.Size = new System.Drawing.Size(216, 21);
+            this.tbMSSV.Size = new System.Drawing.Size(216, 23);
             this.tbMSSV.TabIndex = 7;
             // 
             // cbClass
@@ -279,14 +328,18 @@
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tbCMND;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
-        private System.Windows.Forms.TextBox tbBirthday;
+        private System.Windows.Forms.TextBox tbDay;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox tbYear;
+        private System.Windows.Forms.TextBox tbMonth;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel4;
     }
 }

@@ -3,6 +3,13 @@
 GO
 USE StudentManagement
 
+CREATE TABLE LoginData
+(
+	UsernameL char(50) PRIMARY KEY,
+	PasswordL char(50),
+	TypeL char(1) CHECK (TypeL = '1' OR TypeL = '0')
+)
+
 CREATE TABLE Student
 (
 	STT int IDENTITY,
@@ -59,6 +66,7 @@ ALTER TABLE Course
 ADD CONSTRAINT FK_COURSE_TO_CLASS
 FOREIGN KEY (ClassID) REFERENCES Class(ID)
 
+INSERT INTO LoginData VALUES ('giaovu','giaovu','0');
 
 GO
 CREATE PROC sp_addStudent
@@ -67,7 +75,9 @@ AS
 	IF EXISTS (SELECT * FROM Student WHERE dbo.Student.MSSV = @MSSV)
 		THROW 50000,'Duplicate MSSV',1
 	ELSE
+	BEGIN
 		INSERT INTO dbo.Student VALUES(@MSSV,@Name,@Birthday,@Gender,@CMND,@ClassID)
+	END
 GO
 
 CREATE PROC sp_addClass
@@ -85,7 +95,7 @@ AS
 	IF EXISTS (SELECT * FROM Course WHERE ID = @ID)
 		THROW 50000,'Duplicate Course ID',1
 	ELSE
-			INSERT INTO Course VALUES (@ID,@Name,@RoomID,@ClassID,@Semester,@Year)
+		INSERT INTO Course VALUES (@ID,@Name,@RoomID,@ClassID,@Semester,@Year)
 GO
 
 CREATE PROC sp_registrationCourse
@@ -94,7 +104,7 @@ AS
 	IF EXISTS (SELECT * FROM Grade WHERE @MSSV = MSSV AND @CourseID = CourseID AND @Semester = Semester AND ClassID = @ClassID)
 		THROW 50000,'Duplicate registration',1
 	ELSE
-		INSERT INTO Grade (MSSV,CourseID,Semester,ClassID) VALUES (@MSSV,@CourseID,@Semester,@ClassID)
+		INSERT INTO Grade (MSSV,CourseID,Semester,ClassID,DiemGK,DiemCK,DiemKhac,DiemTong) VALUES (@MSSV,@CourseID,@Semester,@ClassID,0,0,0,0)
 GO
 
 CREATE PROC sp_addGrade
@@ -104,6 +114,27 @@ AS
 		UPDATE Grade SET DiemCK = @DiemCK, DiemGK = @DiemGK, DiemKhac = @DiemKhac,DiemTong = @DiemTong WHERE MSSV = @MSSV AND CourseID = @CourseID AND ClassID = @ClassID AND @Semester = Semester
 	ELSE
 		INSERT INTO Grade VALUES (@MSSV,@CourseID,@Semester,@DiemGK,@DiemCK,@DiemKhac,@DiemTong,@ClassID)
+GO
+
+CREATE PROC sp_addLoginL
+@UsernameL char(50),@PasswordL char(50),@TypeL char(1)
+AS
+	IF EXISTS (SELECT * FROM LoginData WHERE UsernameL = @UsernameL )
+		THROW 50000,'Duplicate User',1
+	ELSE
+		INSERT INTO LoginData VALUES (@UsernameL,@PasswordL,@TypeL)
+GO
+
+CREATE PROC sp_updatePas
+@Username char(50),@NewPass char(50),@OldPass char(50)
+AS
+	UPDATE LoginData SET PasswordL = @NewPass WHERE @Username = UsernameL AND @OldPass = PasswordL
+GO
+
+CREATE PROC sp_updateGrade
+@Username char(50),@NewPass char(50),@OldPass char(50)
+AS
+	UPDATE LoginData SET PasswordL = @NewPass WHERE @Username = UsernameL AND @OldPass = PasswordL
 GO
 	
 
@@ -131,6 +162,7 @@ AS
 	RETURN SELECT DISTINCT s.MSSV,s.Name,s.Birthday,s.Gender,s.CMND,s.ClassID FROM Student s, Course c,Grade g WHERE g.ClassID = @ClassID AND g.CourseID = @CourseID AND s.MSSV = g.MSSV AND g.Semester = @Semester
 GO
 
+
 CREATE FUNCTION fn_getSemester()
 RETURNS TABLE
 AS
@@ -148,3 +180,23 @@ RETURNS TABLE
 AS
 	RETURN SELECT c.ID,c.Name,c.RoomID FROM Course c WHERE c.ClassID=@ClassID AND c.Semester = @Semester
 GO
+
+CREATE FUNCTION fn_getLogin()
+RETURNS TABLE
+AS
+	RETURN SELECT UsernameL,PasswordL,TypeL FROM LoginData
+GO
+
+CREATE FUNCTION fn_getGradeStudent(@MSSV char(7),@Year char(4),@Semester char(3))
+RETURNS TABLE
+AS
+	RETURN SELECT g.CourseID,DiemGK,DiemCK,DiemKhac,DiemTong FROM Grade g,Course c WHERE @MSSV = g.MSSV AND c.ID = g.CourseID AND c.Year = @Year AND g.Semester = @Semester
+GO
+
+--SELECT * FROM fn_getGradeStudent('1842001','1819','HK1')
+
+
+SELECT * FROM Student
+SELECT * FROM Course
+SELECT * FROM Grade
+SELECT * FROM LoginData

@@ -21,12 +21,13 @@ namespace QuanLySinhVien.UI
             InitializeComponent();
             cbSelect.SelectedIndex = 0;
             /*--------- Test ----------------*/
-            importDataTest();
+            //importDataTest();
         }
 
         void importDataStudent()
         {
             List<Student> studentList = new List<Student>();
+            List<LoginData> loginList = new List<LoginData>();
             string classID = "";
             string path =tbPath.Text.ToString();
             var reader = new StreamReader(@path);
@@ -36,6 +37,7 @@ namespace QuanLySinhVien.UI
                 while (!reader.EndOfStream)
                 {
                     Student student = new Student();
+                    LoginData login = new LoginData();
                     var line = reader.ReadLine();
                     var value = line.Split(',');
                     if (rows == 0) { classID = value[0]; }
@@ -43,18 +45,24 @@ namespace QuanLySinhVien.UI
                     {
                         student.MSSV = value[1];
                         student.Name = value[2];
-                        student.Birthday = value[3];
+                        student.Birthday = DateTime.Parse(value[3]);
                         student.Gender = value[4];
                         student.CMND = value[5];
                         student.ClassID = classID;
+                        login.UsernameL = value[1];
+                        login.TypeL = "1";
+                        login.PasswordL = student.Birthday.ToString();
 
+                        loginList.Add(login);
                         studentList.Add(student);
                     }
                     rows++;
                 }
                 ManagementBLL mBLL = new ManagementBLL();
+               
                 mBLL.insertClass(studentList[0].ClassID);
                 mBLL.insertStudent(studentList);
+                mBLL.insertLogin(loginList);
             }
             catch { }
         }
@@ -178,6 +186,7 @@ namespace QuanLySinhVien.UI
         void importDataStudent(string path)
         {
             List<Student> studentList = new List<Student>();
+            List<LoginData> loginList = new List<LoginData>();
             string classID = "";
             var reader = new StreamReader(@path);
             int rows = 0;
@@ -186,6 +195,7 @@ namespace QuanLySinhVien.UI
                 while (!reader.EndOfStream)
                 {
                     Student student = new Student();
+                    LoginData login = new LoginData();
                     var line = reader.ReadLine();
                     var value = line.Split(',');
                     if (rows == 0) { classID = value[0]; }
@@ -193,18 +203,28 @@ namespace QuanLySinhVien.UI
                     {
                         student.MSSV = value[1];
                         student.Name = value[2];
-                        student.Birthday = value[3];
+                        student.Birthday =DateTime.Parse( value[3]);
                         student.Gender = value[4];
                         student.CMND = value[5];
                         student.ClassID = classID;
 
+                        login.UsernameL = student.MSSV;
+                        login.TypeL = "1";
+                        string str = value[3];
+                        var temp = str.Split('/');
+                        //login.Password =
+                        foreach (string s in temp) login.PasswordL += s;
+                        loginList.Add(login);
+                        
                         studentList.Add(student);
                     }
                     rows++;
                 }
                 ManagementBLL mBLL = new ManagementBLL();
+              
                 mBLL.insertClass(studentList[0].ClassID);
                 mBLL.insertStudent(studentList);
+                mBLL.insertLogin(loginList);
             }
             catch { }
         }

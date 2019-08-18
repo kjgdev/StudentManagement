@@ -24,34 +24,42 @@ namespace QuanLySinhVien.UI
 
         public void initComboBox()
         {
-            /*----- ComboBox Class ------*/
-            cbClass.Items.Clear();
-            List<string> list = mBLL.getClassID();
-            foreach (string item in list) {
-                cbClass.Items.Add(item);                
-            }
-            cbClass.SelectedIndex = 0;
-
-            /*----- ComboBox Course ------*/
-            cbCourse.Items.Clear();
-            string strDefault = "----------";
-            cbCourse.Items.Add(strDefault);
-            List<string> list1 = mBLL.getCourseID();
-            foreach (string item in list1)
+            try
             {
-                cbCourse.Items.Add(item);
-            }
-            cbCourse.SelectedIndex = 0;
+                /*----- ComboBox Class ------*/
+                cbClass.Items.Clear();
+                List<string> list = mBLL.getClassID();
+                foreach (string item in list)
+                {
+                    cbClass.Items.Add(item);
+                }
+                cbClass.SelectedIndex = 0;
 
-            /*----- ComboBox Semester ------*/
-            cbSemester.Items.Clear();
-            cbSemester.Items.Add(strDefault);
-            List<string> list2 = mBLL.getSemester();
-            foreach (string item in list2)
-            {
-                cbSemester.Items.Add(item);
+                /*----- ComboBox Course ------*/
+                cbCourse.Items.Clear();
+                string strDefault = "----------";
+                cbCourse.Items.Add(strDefault);
+                List<string> list1 = mBLL.getCourseID();
+                foreach (string item in list1)
+                {
+                    cbCourse.Items.Add(item);
+                }
+                cbCourse.SelectedIndex = 0;
+
+                /*----- ComboBox Semester ------*/
+                cbSemester.Items.Clear();
+                cbSemester.Items.Add(strDefault);
+                List<string> list2 = mBLL.getSemester();
+                foreach (string item in list2)
+                {
+                    cbSemester.Items.Add(item);
+                }
+                cbSemester.SelectedIndex = 0;
             }
-            cbSemester.SelectedIndex = 0;
+            catch {
+                MessageBox.Show("No Data");
+                
+            }
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)

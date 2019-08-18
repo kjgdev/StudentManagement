@@ -8,32 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLySinhVien.BLL;
-using QuanLySinhVien.Entity;
 
 namespace QuanLySinhVien.UI
 {
-    public partial class Schedule : UserControl
+    public partial class GradeStudent : UserControl
     {
-        ManagementBLL mBLL = new ManagementBLL();
-        public Schedule()
+        string MSSV;
+        public GradeStudent(string MSSV)
         {
             InitializeComponent();
             initComboBox();
+            this.MSSV = MSSV;
         }
 
         public void initComboBox()
         {
             try
             {
-                /*----- ComboBox Class ------*/
-                cbClass.Items.Clear();
-                List<string> list = mBLL.getClassID();
-                foreach (string item in list)
-                {
-                    cbClass.Items.Add(item);
-                }
-                cbClass.SelectedIndex = 0;
-
+                ManagementBLL mBLL = new ManagementBLL();
                 /*----- ComboBox Semester ------*/
                 cbSemester.Items.Clear();
                 List<string> list2 = mBLL.getSemester();
@@ -42,27 +34,32 @@ namespace QuanLySinhVien.UI
                     cbSemester.Items.Add(item);
                 }
                 cbSemester.SelectedIndex = 0;
+
+                cbYear.SelectedIndex = 2;
             }
             catch { MessageBox.Show("No Data"); }
         }
 
-        void insertDataGV()
+        void insertDataGrade()
         {
-            gvSchedule.Rows.Clear();
+            gvGrade.Rows.Clear();
             ManagementBLL mBLL = new ManagementBLL();
-            List<Course> courseList = mBLL.GetSchedule(cbClass.SelectedItem.ToString(), cbSemester.SelectedItem.ToString());
-            foreach (Course course in courseList)
+            
+            List<Entity.Grade> list = mBLL.getGradeStudent(MSSV,cbYear.SelectedItem.ToString(),cbSemester.SelectedItem.ToString());
+            foreach(Entity.Grade item in list)
             {
-                int n = gvSchedule.Rows.Add();
-                gvSchedule.Rows[n].Cells[0].Value = course.ID;
-                gvSchedule.Rows[n].Cells[1].Value = course.Name;
-                gvSchedule.Rows[n].Cells[2].Value = course.RoomID;
+                int n = gvGrade.Rows.Add();
+                gvGrade.Rows[n].Cells[0].Value = item.CourseID;
+                gvGrade.Rows[n].Cells[1].Value = item.DiemGK;
+                gvGrade.Rows[n].Cells[2].Value = item.DiemCK;
+                gvGrade.Rows[n].Cells[3].Value = item.DiemKhac;
+                gvGrade.Rows[n].Cells[4].Value = item.DiemTong;
             }
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            insertDataGV();
+            insertDataGrade();
         }
     }
 }

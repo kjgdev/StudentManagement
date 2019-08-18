@@ -44,6 +44,16 @@ namespace QuanLySinhVien.BLL
             return mDAL.GetSchedule(classID,semester);
         }
 
+        public List<LoginData> getLogin()
+        {
+            return mDAL.getLogin();
+        }
+
+        public List<Grade> getGradeStudent(string MSSV, string year, string semester)
+        {
+            return mDAL.getGradeStudent(MSSV, year, semester);
+        }
+
         public bool insertStudent(List<Student> studentsList)
         {
             return mDAL.insertStudent(studentsList);
@@ -69,6 +79,20 @@ namespace QuanLySinhVien.BLL
             return mDAL.insertGrade(gradeList);
         }
 
+        public bool insertLogin(List<LoginData> loginList)
+        {
+            return mDAL.insertLogin(loginList);
+        }
+        public bool updatePass(string user, string pass,string oldPass)
+        {
+            return mDAL.updatePass(user, pass, oldPass);
+        }
+
+        public bool updateGrade(Grade grade)
+        {
+            return mDAL.updateGrade(grade);
+        }
+            
 
     }
 }

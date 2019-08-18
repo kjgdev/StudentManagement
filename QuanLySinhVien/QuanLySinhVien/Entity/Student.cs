@@ -10,7 +10,7 @@ namespace QuanLySinhVien.Entity
     {
         public string MSSV { get; set; }
         public string Name { get; set; }
-        public string Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public string Gender { get; set; }
         public string CMND { get; set; }
         public string ClassID { get; set; }

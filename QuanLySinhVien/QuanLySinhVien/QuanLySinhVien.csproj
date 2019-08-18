@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,12 +51,31 @@
     <Compile Include="DAL\ManagementDAL.cs" />
     <Compile Include="Entity\Grade.cs" />
     <Compile Include="Entity\Course.cs" />
+    <Compile Include="Entity\LoginData.cs" />
     <Compile Include="Entity\Student.cs" />
     <Compile Include="UI\AddStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Connect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Connect.Designer.cs">
+      <DependentUpon>Connect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditGrade.Designer.cs">
+      <DependentUpon>EditGrade.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
@@ -65,11 +85,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Grade.cs">
+    <Compile Include="UI\GradeLayout.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Grade.Designer.cs">
-      <DependentUpon>Grade.cs</DependentUpon>
+    <Compile Include="UI\GradeLayout.Designer.cs">
+      <DependentUpon>GradeLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GradeStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GradeStudent.Designer.cs">
+      <DependentUpon>GradeStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Import.cs">
       <SubType>Form</SubType>
@@ -77,11 +103,17 @@
     <Compile Include="UI\Import.Designer.cs">
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Login.cs">
+    <Compile Include="UI\ImportData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ImportData.Designer.cs">
+      <DependentUpon>ImportData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LoginLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="UI\LoginLayout.Designer.cs">
+      <DependentUpon>LoginLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Schedule.cs">
       <SubType>UserControl</SubType>
@@ -107,17 +139,32 @@
     <EmbeddedResource Include="UI\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Connect.resx">
+      <DependentUpon>Connect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditGrade.resx">
+      <DependentUpon>EditGrade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Grade.resx">
-      <DependentUpon>Grade.cs</DependentUpon>
+    <EmbeddedResource Include="UI\GradeLayout.resx">
+      <DependentUpon>GradeLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GradeStudent.resx">
+      <DependentUpon>GradeStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ImportData.resx">
+      <DependentUpon>ImportData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LoginLayout.resx">
+      <DependentUpon>LoginLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>

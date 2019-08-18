@@ -117,13 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="CourseID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Room.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="label1.Text" xml:space="preserve">
+    <value>- Đinh dạng file import class: "ClassID".csv
+=&gt; Ex: 17HCB.csv
+
+- Định dạng file  import schedule: 
+"semester"-"year"-"ClassID".csv
+=&gt; Ex: HK1-1819-17HCB.csv
+
+- Định dạng file  import Grade: 
+"semester"-"courseID"-"ClassID".csv
+=&gt; Ex: HK1-CTT001-18HCB.csv</value>
+  </data>
 </root>
